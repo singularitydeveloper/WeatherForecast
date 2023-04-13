@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('checkout') {
-            steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/singularitydeveloper/WeatherForecast']])
-            }
-        }
         stage('build') {
             steps {
                dotnetBuild configuration: 'Release', project: 'WeatherForecastApi/WeatherForecastApi.csproj', sdk: '.NET 6'

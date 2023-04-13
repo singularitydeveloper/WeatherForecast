@@ -19,7 +19,7 @@ pipeline {
         }
         stage('docker image') {
             steps {
-                sh 'docker build -t weatherforecast -f WeatherForecastApi .'
+                sh 'docker build -t weatherforecast -f WeatherForecastApi/Dockerfile .'
             }
         }
         stage('docker run') {
